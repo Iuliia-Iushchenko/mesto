@@ -1,0 +1,43 @@
+@import url(../vendor/normalize.css);
+@import url(../fonts/Inter/inter.css);
+
+.root {
+  background-color: #000000;
+  margin: 0 auto;
+  padding: 0;
+  min-width: 320px;
+  max-width: 1440px;
+}
+
+.header {
+  max-width: 1200px;
+  min-width: 320px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  margin: 0 auto;
+}
+
+.header__logo {
+  padding-top: 45px;
+  padding-bottom: 46.6px;
+  width: 142px;
+  height: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .header {
+    max-width: 882px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    max-width: 582px;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .header__logo {
+    padding: 28px 0 32px 27px;
+    width: 104px;
+  }
+}
