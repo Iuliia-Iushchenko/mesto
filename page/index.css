@@ -104,6 +104,68 @@
     outline: none;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__container {
+  width: 471px;
+  height: 371px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.popup__form {
+  height: 330px;
+  width: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+
+.popup__title {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  padding: 34px 0 54px 36px;
+}
+
+.popup__item {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  width: 358px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  padding-bottom: 13px;
+  margin: 0 36px 30px 36px;
+}
+
+.button__submit {
+  width: 358px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #000;
+  border-radius: 2px;
+  margin: 12px 36px 0 36px;
+}
+
+.button__close {
+  width: 41px;
+}
+
+
+
 .gallery {
   max-width: 1200px;
   margin: 0 auto;
