@@ -14,7 +14,6 @@
 
 .header {
   max-width: 1200px;
-  min-width: 320px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   margin: 0 auto;
 }
@@ -28,7 +27,6 @@
 
 .profile {
   max-width: 1200px;
-  min-width: 320px;
   margin: 0 auto;
   padding-top: 36px;
   display: flex;
@@ -76,6 +74,13 @@
   background: none;
   border: none;
   cursor: pointer;
+
+  -webkit-transition: opacity .5s linear; /* Для Chrome, Android Browser */
+  transition: opacity .5s linear;
+}
+
+.button:hover {
+  opacity: .6;
 }
 
 .button__add_image {
@@ -101,7 +106,6 @@
 
 .gallery {
   max-width: 1200px;
-  min-width: 320px;
   margin: 0 auto;
   padding-top: 51px;
   display: grid;
@@ -152,12 +156,32 @@
   height: 18px;
 }
 
+.footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 66px;
+  padding-bottom: 60px;
+}
+
+.footer__copyright {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+  margin: 0;
+}
+
 @media screen and (max-width: 1280px) {
   .header {
     max-width: 882px;
   }
+
   .profile {
     max-width: 882px;
+  }
+
+  .footer {
+  max-width: 882px;
   }
 }
 
@@ -175,6 +199,10 @@
   .gallery {
   grid-template-columns: repeat(2, 282px);
   }
+
+  .footer {
+    max-width: 582px;
+  }
 }
 
 @media screen and (max-width: 668px) {
@@ -188,6 +216,17 @@
     row-gap: 20px;
     column-gap: 0;
     grid-template-columns: repeat(1, 282px);
+  }
+
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .footer {
+    max-width: 282px;
+    padding-top: 48px;
+    padding-bottom: 36px;
   }
 }
 
