@@ -19,26 +19,26 @@
           <div class="profile__edit">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <form method="POST" action="#">
-              <button class="button button__edit" name="button__edit"><img class="button__edit_image" src="./images/edit_button.svg" alt="Кнопка для редактирования"></button>
+              <button class="button button__edit" name="button__edit" type="button"></button>
             </form>
           </div>
-          <p class="profile__activity">Исследователь океана</p>
+          <p class="profile__job">Исследователь океана</p>
         </div>
       </div>
       <form method="POST" action="#">
-        <button class="button button__add" name="button__add"><img class="button__add_image" src="./images/add_button.svg" alt="Кнопка для редактирования"></button>
+        <button class="button button__add" name="button__add" type="button"></button>
       </form>
 
-      <div class="popup">
+      <div class="popup popup_opened">
         <div class="popup__container">
           <form action="#" class="popup__form">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__item" type="text" name="name" value="Жак-Ив Кусто">
-            <input class="popup__item" type="text" name="activity" value="Исследователь океана">
+            <input class="popup__item popup__item_name" type="text" name="name" value="Жак-Ив Кусто">
+            <input class="popup__item popup__item_job" type="text" name="job" value="Исследователь океана">
             <button class="button button__submit" type="submit">Сохранить</button>
           </form>
           <form action="#">
-            <button type="button" class="button button__close"><img src="./images/close_button.svg" alt="Кнопка закрыть"></button>
+            <button class="button button__close" type="button"></button>
           </form>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <div class="item__description">
           <h2 class="item__title">Греция</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div class="item__description">
           <h2 class="item__title">Индия</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -68,7 +68,7 @@
         <div class="item__description">
           <h2 class="item__title">Ирландия</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -77,7 +77,7 @@
         <div class="item__description">
           <h2 class="item__title">Лондон</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -86,7 +86,7 @@
         <div class="item__description">
           <h2 class="item__title">Чехия</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -95,7 +95,7 @@
         <div class="item__description">
           <h2 class="item__title">Испания</h2>
           <form method="POST" action="#">
-            <button class="button button__like"><img src="./images/like.svg" alt="Кнопка like"></button>
+            <button class="button button__like" type="button"></button>
           </form>
         </div>
       </div>
@@ -104,5 +104,6 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+  <script src="./blocks/popup/popup.js"></script>
 </body>
 </html>
