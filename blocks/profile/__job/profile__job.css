@@ -1,0 +1,15 @@
+.profile__job {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+}
+
+@media screen and (max-width: 582px) {
+  .profile__job {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}

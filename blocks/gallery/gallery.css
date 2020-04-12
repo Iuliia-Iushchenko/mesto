@@ -1,0 +1,39 @@
+@import url(./__card/gallery__card.css);
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 51px;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 21px;
+  -webkit-column-gap: 18px;
+     -moz-column-gap: 18px;
+          column-gap: 18px;
+  -ms-grid-columns: 282px 18px 282px 18px 282px;
+  grid-template-columns: repeat(3, 282px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .gallery {
+   grid-template-columns: repeat(2, 282px);
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .gallery {
+    padding-top: 36px;
+    row-gap: 20px;
+    -webkit-column-gap: 0;
+       -moz-column-gap: 0;
+            column-gap: 0;
+    -ms-grid-columns: 282px;
+    grid-template-columns: repeat(1, 282px);
+  }
+}
