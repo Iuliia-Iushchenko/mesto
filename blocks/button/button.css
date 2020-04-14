@@ -1,8 +1,12 @@
+@import url(./_add/button_add.css);
+@import url(./_edit/button_edit.css);
+@import url(./_like/button_like.css);
+@import url(./_close/button_close.css);
+@import url(./_submit/button_submit.css);
+
+
 .button {
-  margin: 0;
   padding: 0;
-  background: none;
-  border: none;
   cursor: pointer;
 
   -webkit-transition: opacity .5s linear;

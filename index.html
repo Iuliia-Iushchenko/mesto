@@ -18,92 +18,76 @@
         <div class="profile__info">
           <div class="profile__edit">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <form method="POST" action="#">
-              <button class="button button__edit" name="button__edit" type="button"></button>
-            </form>
+            <button class="button button_edit" name="button_edit" type="button"></button>
           </div>
           <p class="profile__job">Исследователь океана</p>
         </div>
       </div>
-      <form method="POST" action="#">
-        <button class="button button__add" name="button__add" type="button"></button>
-      </form>
-
-      <div class="popup popup_opened">
-        <div class="popup__container">
-          <form action="#" class="popup__form">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__item popup__item_name" type="text" name="name" value="Жак-Ив Кусто">
-            <input class="popup__item popup__item_job" type="text" name="job" value="Исследователь океана">
-            <button class="button button__submit" type="submit">Сохранить</button>
-          </form>
-          <form action="#">
-            <button class="button button__close" type="button"></button>
-          </form>
-        </div>
-      </div>
+        <button class="button button_add" name="button_add" type="button"></button>
     </section>
 
     <section class="gallery">
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/grees.jpg" alt="Греция">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Греция</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/grees.jpg" alt="Греция">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Греция</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/india.jpg" alt="Индия">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Индия</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      </article>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/india.jpg" alt="Индия">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Индия</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/irland.jpg" alt="Ирландия">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Ирландия</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      </article>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/irland.jpg" alt="Ирландия">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Ирландия</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/london.jpg" alt="Лондон">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Лондон</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      </article>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/london.jpg" alt="Лондон">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Лондон</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/prague.jpg" alt="Чехия">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Чехия</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      </article>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/prague.jpg" alt="Чехия">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Чехия</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
-      <div class="gallery__card">
-        <img class="gallery__card_picture" src="./images/spain.jpg" alt="Испания">
-        <div class="gallery__card_description">
-          <h2 class="gallery__card_title">Испания</h2>
-          <form method="POST" action="#">
-            <button class="button button__like" type="button"></button>
-          </form>
+      </article>
+      <article class="gallery-card">
+        <img class="gallery-card__picture" src="./images/spain.jpg" alt="Испания">
+        <div class="gallery-card__description">
+          <h2 class="gallery-card__title">Испания</h2>
+          <button class="button button_like" type="button"></button>
         </div>
-      </div>
+      </article>
     </section>
+
+    <div class="popup">
+      <div class="popup__container">
+        <form action="#" class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__item popup__item_name" type="text" name="name" value="">
+          <input class="popup__item popup__item_job" type="text" name="job" value="">
+          <button class="button button_submit" type="submit">Сохранить</button>
+        </form>
+          <button class="button button_close" type="button"></button>
+      </div>
+    </div>
+
   </main>
+
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <script src="./blocks/popup/popup.js"></script>
+  <script src="./scripts/popup.js"></script>
 </body>
 </html>
