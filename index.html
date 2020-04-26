@@ -27,51 +27,10 @@
     </section>
 
     <section class="gallery">
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/grees.jpg" alt="Греция">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Греция</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/india.jpg" alt="Индия">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Индия</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/irland.jpg" alt="Ирландия">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Ирландия</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/london.jpg" alt="Лондон">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Лондон</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/prague.jpg" alt="Чехия">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Чехия</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
-      <article class="gallery-card">
-        <img class="gallery-card__picture" src="./images/spain.jpg" alt="Испания">
-        <div class="gallery-card__description">
-          <h2 class="gallery-card__title">Испания</h2>
-          <button class="button button_like" type="button"></button>
-        </div>
-      </article>
+
     </section>
 
-    <div class="popup">
+    <div class="popup popup-edit">
       <div class="popup__container">
         <form action="#" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -79,15 +38,39 @@
           <input class="popup__item popup__item_job" type="text" name="job" value="">
           <button class="button button_submit" type="submit">Сохранить</button>
         </form>
-          <button class="button button_close" type="button"></button>
+          <button class="button button_close popup-edit__close" type="button"></button>
+      </div>
+    </div>
+
+    <div class="popup popup-add">
+      <div class="popup__container">
+        <form action="#" class="popup__form">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__item popup__item_title" type="text" name="title" placeholder="Название" value="">
+          <input class="popup__item popup__item_path" type="text" name="path" placeholder="Ссылка на картинку" value="">
+          <button class="button button_submit button_create" type="submit">Создать</button>
+        </form>
+          <button class="button button_close popup-add__close" type="button"></button>
       </div>
     </div>
 
   </main>
 
+  <template id="card-template">
+    <article class="gallery-card">
+      <img class="gallery-card__picture" src="" alt="">
+      <button class="button button_delite"></button>
+      <div class="gallery-card__description">
+        <h2 class="gallery-card__title"></h2>
+        <button class="button button_like" type="button"></button>
+      </div>
+    </article>
+  </template>
+
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+
   <script src="./scripts/popup.js"></script>
 </body>
 </html>

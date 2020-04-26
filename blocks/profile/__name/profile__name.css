@@ -5,6 +5,7 @@
   color: #ffffff;
   margin: 0;
   padding-bottom: 16px;
+  word-break: break-word;
 }
 
 @media screen and (max-width: 582px) {

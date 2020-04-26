@@ -1,0 +1,4 @@
+.song__like_active {
+  opacity: 1;
+  background: url(../../../../images/like_active.svg) no-repeat;
+}
