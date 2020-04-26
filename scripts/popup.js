@@ -94,7 +94,12 @@ initialCards.forEach(function (item) {
   cardElement.querySelector('.button_like').addEventListener('click', function (evt) {
     const eventTarget = evt.target;
     eventTarget.classList.toggle('song__like_active');
-  })
+  });
+
+  cardElement.querySelector('.button_delite').addEventListener('click', function(evt) {
+    const eventTarget = evt.target.closest('.gallery-card');
+    eventTarget.remove();
+});
 
   galleryContainer.append(cardElement);
 });
