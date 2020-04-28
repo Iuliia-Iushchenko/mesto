@@ -4,6 +4,7 @@ const buttonClosePopupAdd = document.querySelector('.popup-add__close');
 let popup = document.querySelector('.popup');
 let popupEdit = document.querySelector('.popup-edit');
 let popupAdd = document.querySelector('.popup-add');
+let popupPhoto = document.querySelector('.popup-photo');
 let buttonSubmit = document.querySelector('.button_submit');
 let nameInput = document.querySelector('.popup__item_name');
 let jobInput = document.querySelector('.popup__item_job');
@@ -55,7 +56,7 @@ function formSubmitHandler (evt) {
   popup.classList.remove('popup_opened');
 };
 
-formElement.addEventListener('submit', formSubmitHandler);
+popupEdit.addEventListener('submit', formSubmitHandler);
 
 const initialCards = [
   {
@@ -84,26 +85,33 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function (item) {
+function newCard (name, link) {
   const cardTemplate = document.querySelector('#card-template').content;
   const cardElement = cardTemplate.cloneNode(true);
 
-  cardElement.querySelector('.gallery-card__picture').src = item.link;
-  cardElement.querySelector('.gallery-card__title').textContent = item.name;
+  cardElement.querySelector('.gallery-card__picture').src = link;
+  cardElement.querySelector('.gallery-card__title').textContent = name;
 
   cardElement.querySelector('.button_like').addEventListener('click', function (evt) {
-    const eventTarget = evt.target;
-    eventTarget.classList.toggle('song__like_active');
+    evt.target.classList.toggle('button__like_active');
   });
 
-  cardElement.querySelector('.button_delite').addEventListener('click', function(evt) {
+  cardElement.querySelector('.button_delite').addEventListener('click', function (evt) {
     const eventTarget = evt.target.closest('.gallery-card');
     eventTarget.remove();
 });
 
-  galleryContainer.append(cardElement);
+  return cardElement;
+};
+
+initialCards.forEach(function (item) {
+  galleryContainer.append(newCard(item.name, item.link));
 });
 
-//buttonCreate.addEventListener('click', function () {
-//  addCard(titleInput.value, pathInput.value);
-//});
+function photoAddFormSubmitHandler (evt) {
+  evt.preventDefault();
+  galleryContainer.prepend(newCard(titleInput.value, pathInput.value));
+  popupAdd.classList.remove('popup_opened');
+};
+
+popupAdd.addEventListener('submit', photoAddFormSubmitHandler);

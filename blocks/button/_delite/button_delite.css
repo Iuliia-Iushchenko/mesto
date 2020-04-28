@@ -8,5 +8,5 @@
   border: none;
   background-image: url(../../../images/delite.svg);
   background-repeat: no-repeat;
-  z-index: 100;
+  z-index: 1;
 }

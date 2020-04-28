@@ -1,0 +1,6 @@
+.popup-photo__image {
+  margin: 0 auto;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  max-width: 100%;
+}
