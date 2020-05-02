@@ -30,7 +30,17 @@
 
     </section>
 
-    <div class="popup popup-edit">
+    <div class="popup popup_opacity popup-photo">
+      <div class="popup-photo__container">
+        <figure class="popup-photo__frame">
+          <img class="popup-photo__image" src="" alt="">
+          <figcaption class="popup-photo__caption"></figcaption>
+        </figure>
+        <button class="button button_close popup-photo__close" type="button"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_opacity-normal popup-edit">
       <div class="popup__container">
         <form action="#" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -42,7 +52,7 @@
       </div>
     </div>
 
-    <div class="popup popup-add">
+    <div class="popup popup_opacity-normal popup-add">
       <div class="popup__container">
         <form action="#" class="popup__form">
           <h2 class="popup__title">Новое место</h2>
@@ -59,26 +69,17 @@
   <template id="card-template">
     <article class="gallery-card">
       <img class="gallery-card__picture" src="" alt="">
-      <button class="button button_delite"></button>
+      <button class="button button_delete"></button>
       <div class="gallery-card__description">
         <h2 class="gallery-card__title"></h2>
         <button class="button button_like" type="button"></button>
-      </div>
-      <div class="popup-photo">
-        <div class="popup-photo__container">
-          <figure class="popup-photo__frame">
-            <img class="popup-photo__image" src="" alt="">
-            <figcaption class="popup-photo__caption"></figcaption>
-          </figure>
-          <button class="button button_close popup-photo__close" type="button"></button>
-        </div>
       </div>
     </article>
 
   </template>
 
   <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy; 2020 Ющенко Юлия</p>
   </footer>
 
   <script src="./scripts/popup.js"></script>

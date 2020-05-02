@@ -2,5 +2,6 @@
   margin: 0 auto;
   -ms-flex-item-align: end;
   align-self: flex-end;
-  max-width: 100%;
+  max-height: 75vh;
+  max-width: 75vw;
 }

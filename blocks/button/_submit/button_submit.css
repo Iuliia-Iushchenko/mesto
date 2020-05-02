@@ -11,8 +11,8 @@
 
 @media screen and (max-width: 582px) {
   .button_submit {
-    width: 235px;
-    height: 30px;
-    margin: 5px 22px 0 22px;
+    width: 200px;
+    height: 40px;
+    margin: 0 20px 16px 20px;
   }
 }

@@ -6,5 +6,7 @@
   padding-left: 21px;
   margin: 0;
   max-width: 220px;
-  word-break: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
