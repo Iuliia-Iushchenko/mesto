@@ -62,18 +62,18 @@ function newCard(name, link) {
 
 
   //включение/выключение лайков
-  cardElement.querySelector('.button_like').addEventListener('click', function (evt) {
+  cardElement.querySelector('.button_like').addEventListener('click', function(evt) {
     evt.target.classList.toggle('button__like_active');
   });
 
   //удаление карточки
-  cardElement.querySelector('.button_delete').addEventListener('click', function (evt) {
+  cardElement.querySelector('.button_delete').addEventListener('click', function(evt) {
     const eventTarget = evt.target.closest('.gallery-card');
     eventTarget.remove();
   });
 
   //открытие попапа увеличения фотографии из карточки
-  cardElement.querySelector('.gallery-card__picture').addEventListener('click', function (evt) {
+  cardElement.querySelector('.gallery-card__picture').addEventListener('click', function(evt) {
     popupOpenedClosed(popupPhoto);
     photoImage.src = evt.target.src;
     photoImage.alt = name;
@@ -124,9 +124,11 @@ buttonClosePopupAdd.addEventListener('click', function() {
 });
 
 //добавление новой карточки
-function photoAddFormSubmitHandler (evt) {
+function photoAddFormSubmitHandler(evt) {
   evt.preventDefault();
   galleryContainer.prepend(newCard(titleInput.value, pathInput.value));
+  titleInput.value = "";
+  pathInput.value = "";
   popupAdd.classList.remove('popup_opened');
 };
 
