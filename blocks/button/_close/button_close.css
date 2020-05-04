@@ -1,19 +1,21 @@
 .button_close {
   width: 41px;
   height: 41px;
-  margin-left: 5px;
   background: none;
   border: none;
   background-image: url(../../../images/close_button.svg);
   background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  top: -41px;
+  top: -35px;
+  right: 6px;
 }
 
 @media screen and (max-width: 582px) {
   .button_close {
     width: 30px;
     height: 30px;
-    top: -30px;
+    top: -25px;
+    right: 5px;
   }
 }

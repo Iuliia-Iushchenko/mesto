@@ -4,7 +4,9 @@
 @import url(./__item/popup__item.css);
 @import url(./_opacity/popup_opacity.css);
 @import url(./_opacity-normal/popup_opacity-normal.css);
-
+@import url(./__frame/popup__frame.css);
+@import url(./__image/popup__image.css);
+@import url(./__caption/popup__caption.css);
 
 .popup {
   position: fixed;
