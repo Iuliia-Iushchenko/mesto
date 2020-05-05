@@ -50,7 +50,7 @@ function togglePopup(popup) {
 };
 
 // открытие попапа просмотра карточки
-function pictureShowkHandler(evt) {
+function pictureShowHandler(evt) {
   cardImage.src = evt.target.src;
   cardImage.alt = evt.target.alt;
   cardCaption.textContent = evt.target.alt;
@@ -64,10 +64,11 @@ function buttonLikeClickHandler(evt) {
 
 // удаление карточки и слушателей
 function buttonDeleteClickHandler(evt) {
-  evt.target.removeEventListener('click', buttonLikeClickHandler);
+  const cardElement = evt.target.closest('.gallery-card');
   evt.target.removeEventListener('click', buttonDeleteClickHandler);
-  evt.target.removeEventListener('click', pictureShowkHandler);
-  evt.target.closest('.gallery-card').remove();
+  cardElement.querySelector('.button_like').removeEventListener('click', buttonLikeClickHandler);
+  cardElement.querySelector('.gallery-card__picture').removeEventListener('click', pictureShowHandler);
+  cardElement.remove();
 }
 
 // создание карточки
@@ -77,14 +78,14 @@ function createCard(name, link) {
   const buttonDelete = cardElement.querySelector('.button_delete');
   const picture = cardElement.querySelector('.gallery-card__picture');
 
-  cardElement.querySelector('.gallery-card__picture').src = link;
-  cardElement.querySelector('.gallery-card__picture').alt = name;
+  picture.src = link;
+  picture.alt = name;
   cardElement.querySelector('.gallery-card__title').textContent = name;
 
 
   buttonLike.addEventListener('click', buttonLikeClickHandler);
   buttonDelete.addEventListener('click', buttonDeleteClickHandler);
-  picture.addEventListener('click', pictureShowkHandler);
+  picture.addEventListener('click', pictureShowHandler);
 
   return cardElement;
 }
