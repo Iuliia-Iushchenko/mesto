@@ -50,16 +50,24 @@ function togglePopup(popup) {
 };
 
 // открытие попапа просмотра карточки
-function pictureClickHandler(evt) {
+function pictureShowkHandler(evt) {
   cardImage.src = evt.target.src;
   cardImage.alt = evt.target.alt;
-  cardCaption.textContent = name;
+  cardCaption.textContent = evt.target.alt;
   togglePopup(popupDisplayCard);
 }
 
-//
+// кнопка «Лайк»
 function buttonLikeClickHandler(evt) {
   evt.target.classList.toggle('button__like_active');
+}
+
+// удаление карточки и слушателей
+function buttonDeleteClickHandler(evt) {
+  evt.target.removeEventListener('click', buttonLikeClickHandler);
+  evt.target.removeEventListener('click', buttonDeleteClickHandler);
+  evt.target.removeEventListener('click', pictureShowkHandler);
+  evt.target.closest('.gallery-card').remove();
 }
 
 // создание карточки
@@ -69,13 +77,6 @@ function createCard(name, link) {
   const buttonDelete = cardElement.querySelector('.button_delete');
   const picture = cardElement.querySelector('.gallery-card__picture');
 
-  function buttonDeleteClickHandler(evt) {
-    buttonLike.removeEventListener('click', buttonLikeClickHandler);
-    buttonDelete.removeEventListener('click', buttonDeleteClickHandler);
-    picture.removeEventListener('click', pictureClickHandler);
-    evt.target.closest('.gallery-card').remove();
-  }
-
   cardElement.querySelector('.gallery-card__picture').src = link;
   cardElement.querySelector('.gallery-card__picture').alt = name;
   cardElement.querySelector('.gallery-card__title').textContent = name;
@@ -83,7 +84,7 @@ function createCard(name, link) {
 
   buttonLike.addEventListener('click', buttonLikeClickHandler);
   buttonDelete.addEventListener('click', buttonDeleteClickHandler);
-  picture.addEventListener('click', pictureClickHandler);
+  picture.addEventListener('click', pictureShowkHandler);
 
   return cardElement;
 }
