@@ -1,6 +1,7 @@
 @import url(./__container/popup__container.css);
 @import url(./__form/popup__form.css);
 @import url(./__title/popup__title.css);
+@import url(./__title/_padding/popup__title_padding.css);
 @import url(./__item/popup__item.css);
 @import url(./_opacity/popup_opacity.css);
 @import url(./_opacity-normal/popup_opacity-normal.css);
@@ -26,7 +27,8 @@
           justify-content: center;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.5s, visibility 0s, linear 0.5s;
-  -o-transition: opacity 0.5s, visibility 0s, linear 0.5s;
-  transition: opacity 0.5s, visibility 0s, linear 0.5s;
+  -webkit-transition: opacity 0.7s, visibility 0s linear 0.3s;
+  -o-transition: opacity 0.7s, visibility 0s linear 0.3s;
+  -moz-transition: opacity 0.7s, visibility 0s linear 0.3s;
+  transition: opacity 0.7s, visibility 0s linear 0.3s;
 }

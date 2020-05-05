@@ -49,6 +49,19 @@ function togglePopup(popup) {
   popup.classList.toggle('popup_opened');
 };
 
+// открытие попапа просмотра карточки
+function pictureClickHandler(evt) {
+  cardImage.src = evt.target.src;
+  cardImage.alt = evt.target.alt;
+  cardCaption.textContent = name;
+  togglePopup(popupDisplayCard);
+}
+
+//
+function buttonLikeClickHandler(evt) {
+  evt.target.classList.toggle('button__like_active');
+}
+
 // создание карточки
 function createCard(name, link) {
   const cardElement = cardTemplate.content.cloneNode(true);
@@ -56,31 +69,21 @@ function createCard(name, link) {
   const buttonDelete = cardElement.querySelector('.button_delete');
   const picture = cardElement.querySelector('.gallery-card__picture');
 
-  function buttonLikeClickHandler(evt) {
-    buttonLike.classList.toggle('button__like_active');
-  }
-
   function buttonDeleteClickHandler(evt) {
-    evt.target.closest('.gallery-card').remove();
     buttonLike.removeEventListener('click', buttonLikeClickHandler);
     buttonDelete.removeEventListener('click', buttonDeleteClickHandler);
     picture.removeEventListener('click', pictureClickHandler);
+    evt.target.closest('.gallery-card').remove();
   }
-
-  function pictureClickHandler(evt) {
-    cardImage.src = evt.target.src;
-    cardImage.alt = name;
-    cardCaption.textContent = name;
-    togglePopup(popupDisplayCard);
-  }
-
-  buttonLike.addEventListener('click', buttonLikeClickHandler);
-  buttonDelete.addEventListener('click', buttonDeleteClickHandler);
-  picture.addEventListener('click', pictureClickHandler);
 
   cardElement.querySelector('.gallery-card__picture').src = link;
   cardElement.querySelector('.gallery-card__picture').alt = name;
   cardElement.querySelector('.gallery-card__title').textContent = name;
+
+
+  buttonLike.addEventListener('click', buttonLikeClickHandler);
+  buttonDelete.addEventListener('click', buttonDeleteClickHandler);
+  picture.addEventListener('click', pictureClickHandler);
 
   return cardElement;
 }
@@ -91,20 +94,13 @@ function addToGallery(card) {
 
 // отображение карточек на странице
 function displayInitialCards() {
-  initialCards.forEach(function(item) {
-    addToGallery(createCard(item.name, item.link));
-  });
+  initialCards.forEach(({name, link}) => addToGallery(createCard(name, link)));
 }
 
 // открытие попапа редактирования профиля
-function showPopupEditProfile(evt) {
+function showPopupEditProfile() {
   inputProfileName.value = profileName.textContent;
   inputProfileJob.value = profileJob.textContent;
-  togglePopup(popupEditProfile);
-}
-
-// закрытие попапа редактирования профиля, очистка полей
-function hidePopupEditProfile(evt) {
   togglePopup(popupEditProfile);
 }
 
@@ -117,19 +113,9 @@ function submitFormProfile(evt) {
 }
 
 // открытие попапа добавления карточки
-function showPopupCreateCard(evt) {
+function showPopupCreateCard() {
   formCreateCard.reset();
   togglePopup(popupCreateCard);
-}
-
-// закрытие попапа добавления карточки, очистка полей
-function hidePopupCreateCard(evt) {
-  togglePopup(popupCreateCard);
-}
-
-// закрытие попапа просмотра карточки
-function hidePopupDisplayCard(evt) {
-  togglePopup(popupDisplayCard);
 }
 
 // добавление новой карточки
@@ -141,13 +127,13 @@ function submitFormCreateCard(evt) {
 }
 
 document.querySelector('.button_edit').addEventListener('click', showPopupEditProfile);
-document.querySelector('.popup-edit__close').addEventListener('click', hidePopupEditProfile);
+document.querySelector('.popup-edit__close').addEventListener('click', () => togglePopup(popupEditProfile));
 popupEditProfile.addEventListener('submit', submitFormProfile);
 
 document.querySelector('.button_add').addEventListener('click', showPopupCreateCard);
-document.querySelector('.popup-add__close').addEventListener('click', hidePopupCreateCard);
+document.querySelector('.popup-add__close').addEventListener('click', () => togglePopup(popupCreateCard));
 popupCreateCard.addEventListener('submit', submitFormCreateCard);
 
-document.querySelector('.popup-card__close').addEventListener('click', hidePopupDisplayCard);
+document.querySelector('.popup-card__close').addEventListener('click', () => togglePopup(popupDisplayCard));
 
 displayInitialCards();
