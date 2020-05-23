@@ -2,7 +2,10 @@
 @import url(./__form/popup__form.css);
 @import url(./__title/popup__title.css);
 @import url(./__title/_padding/popup__title_padding.css);
-@import url(./__item/popup__item.css);
+@import url(./__input/popup__input.css);
+@import url(./__input-error/popup__input-error.css);
+@import url(./__input/_type_error/popup__input_type_error.css);
+@import url(./__input-error/_active/popup__input-error_active.css);
 @import url(./_opacity/popup_opacity.css);
 @import url(./_opacity-normal/popup_opacity-normal.css);
 @import url(./__frame/popup__frame.css);

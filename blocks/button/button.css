@@ -5,6 +5,7 @@
 @import url(./_delete/button_delete.css);
 @import url(./_close/button_close.css);
 @import url(./_submit/button_submit.css);
+@import url(./_submit/_inactive/button_submit_inactive.css);
 
 
 .button {
