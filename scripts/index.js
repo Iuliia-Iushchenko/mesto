@@ -62,7 +62,7 @@ function OverlayCloseHandler(evt) {
 function validatePopupForm(formElement, inputList) {
   inputList.forEach((inputElement) => {
     checkInputValidity(formElement, inputElement, 'popup__input_type_error', 'popup__input-error_active');
-  })
+  });
   toggleButtonState('button_submit_inactive', inputList, formElement.querySelector('.button_submit'));
 }
 
@@ -147,7 +147,10 @@ function submitFormProfile(evt) {
 // открытие попапа добавления карточки
 function showPopupCreateCard() {
   formCreateCard.reset();
-  validatePopupForm(formCreateCard, [inputCardTitle, inputCardImageUrl]);
+  [inputCardTitle, inputCardImageUrl].forEach((inputElement) => {
+    hideInputError(formCreateCard, inputElement, 'popup__input_type_error', 'popup__input-error_active');
+  });
+  toggleButtonState('button_submit_inactive', [inputCardTitle, inputCardImageUrl], formCreateCard.querySelector('.button_submit'));
   openPopup(popupCreateCard);
 }
 

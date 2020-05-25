@@ -5,7 +5,7 @@
 @import url(./__job/profile__job.css);
 
 .profile {
-  max-width: 1200px;
+  max-width: 882px;
   margin: 0 auto;
   padding-top: 36px;
   display: -webkit-box;
@@ -17,12 +17,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-@media screen and (max-width: 1280px) {
-  .profile {
-    max-width: 882px;
-  }
 }
 
 @media screen and (max-width: 1000px) {

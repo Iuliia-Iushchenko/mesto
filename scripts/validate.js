@@ -1,18 +1,20 @@
 // отображение ошибок
 const showInputError = (formElement, inputElement, inputErrorClass, errorClass, errorMessage) => {
-  inputElement.classList.add(inputErrorClass);
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+
+  inputElement.classList.add(inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(errorClass);
-};
+}
 
 // скрытие ошибок
 const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
-  inputElement.classList.remove(inputErrorClass);
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+
+  inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
   errorElement.textContent = '';
-};
+}
 
 // проверка поля ввода на валидность
 const checkInputValidity = (formElement, inputElement, inputErrorClass, errorClass) => {
@@ -21,7 +23,7 @@ const checkInputValidity = (formElement, inputElement, inputErrorClass, errorCla
   } else {
     hideInputError(formElement, inputElement, inputErrorClass, errorClass);
   }
-};
+}
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
@@ -35,7 +37,7 @@ const toggleButtonState = (inactiveButtonClass, inputList, buttonElement) => {
   } else {
       buttonElement.classList.remove(inactiveButtonClass);
   }
-};
+}
 
 const setEventListeners = (validationSettings, formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(validationSettings.inputSelector));
@@ -53,6 +55,7 @@ const setEventListeners = (validationSettings, formElement) => {
 
 const enableValidation = (validationSettings) => {
   const formList = Array.from(document.querySelectorAll(validationSettings.formSelector));
+
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
