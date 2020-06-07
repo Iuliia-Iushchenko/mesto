@@ -13,11 +13,6 @@ const formCreateCard = popupCreateCard.querySelector('form');
 const inputCardTitle = formCreateCard.querySelector('.popup__input_title');
 const inputCardImageUrl = formCreateCard.querySelector('.popup__input_path');
 
-// const popupDisplayCard = document.querySelector('.popup-card');
-// const cardImage = popupDisplayCard.querySelector('.popup__image');
-// const cardCaption = popupDisplayCard.querySelector('.popup__caption');
-
-// const cardTemplate = document.querySelector('#card-template');
 const galleryContainer = document.querySelector('.gallery');
 
 
