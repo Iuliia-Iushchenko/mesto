@@ -52,7 +52,7 @@ function keyHandler(evt) {
 }
 
 // закрытие попапов по клику на оверлей
-function OverlayCloseHandler(evt) {
+function overlayCloseHandler(evt) {
   if (evt.target.classList.contains('popup')) {
     evt.target.classList.remove('popup_opened')
   }
@@ -101,7 +101,7 @@ function errorClean(form) {
 function showPopupEditProfile() {
   inputProfileName.value = profileName.textContent;
   inputProfileJob.value = profileJob.textContent;
-  formValidation();
+  formProfile.querySelector('.button_submit').classList.remove('button_submit_inactive');
   errorClean(formProfile);
   openPopup(popupEditProfile);
 }
@@ -147,7 +147,7 @@ document.querySelector('.button_add').addEventListener('click', showPopupCreateC
 document.querySelector('.popup-add__close').addEventListener('click', () => closePopup(popupCreateCard));
 popupCreateCard.addEventListener('submit', submitFormCreateCard);
 
-popupCreateCard.addEventListener('click', OverlayCloseHandler);
-popupEditProfile.addEventListener('click', OverlayCloseHandler);
+popupCreateCard.addEventListener('click', overlayCloseHandler);
+popupEditProfile.addEventListener('click', overlayCloseHandler);
 
 formValidation();

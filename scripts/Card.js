@@ -1,3 +1,5 @@
+const popupDisplayCard = document.querySelector('.popup-card');
+
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -7,11 +9,11 @@ export default class Card {
 
   _keyHandler(evt) {
     if (evt.key === 'Escape') {
-      document.querySelector('.popup-card').classList.remove('popup_opened');
+      popupDisplayCard.classList.remove('popup_opened');
     }
   }
 
-  _OverlayCloseHandler(evt) {
+  _overlayCloseHandler(evt) {
     if (evt.target.classList.contains('popup')) {
       evt.target.classList.remove('popup_opened')
     }
@@ -26,18 +28,19 @@ export default class Card {
   }
 
   _pictureShowHandler() {
-     document.querySelector('.popup__image').src = this._link;
-     document.querySelector('.popup__image').alt = this._name;
+    const cardImage = document.querySelector('.popup__image');
+     cardImage.src = this._link;
+     cardImage.alt = this._name;
      document.querySelector('.popup__caption').textContent = this._name;
-     document.querySelector('.popup-card').classList.add('popup_opened');
+     popupDisplayCard.classList.add('popup_opened');
      document.addEventListener('keydown', this._keyHandler);
-     document.querySelector('.popup-card').addEventListener('click', this._OverlayCloseHandler);
+     popupDisplayCard.addEventListener('click', this._overlayCloseHandler);
   }
 
   _pictureCloseHandler() {
-    document.querySelector('.popup-card').classList.remove('popup_opened');
+    popupDisplayCard.classList.remove('popup_opened');
     document.removeEventListener('keydown', this._keyHandler);
-    document.querySelector('.popup-card').removeEventListener('click', this._OverlayCloseHandler);
+    popupDisplayCard.removeEventListener('click', this._overlayCloseHandler);
   }
 
   _setEventListeners() {
@@ -62,8 +65,10 @@ export default class Card {
     this._element = document.querySelector(this._cardSelector).content.querySelector('.gallery-card').cloneNode(true);
     this._setEventListeners();
 
-    this._element.querySelector('.gallery-card__picture').src = this._link;
-    this._element.querySelector('.gallery-card__picture').alt = this._name;
+    const picture = this._element.querySelector('.gallery-card__picture');
+
+    picture.src = this._link;
+    picture.alt = this._name;
     this._element.querySelector('.gallery-card__title').textContent = this._name;
 
     return this._element;
