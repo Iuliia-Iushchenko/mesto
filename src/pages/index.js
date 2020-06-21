@@ -64,7 +64,10 @@ const cardList = new Section({
   })
 }, galleryContainer);
 
-const userInfo = new UserInfo();
+const userInfo = new UserInfo({
+  userName: profileName,
+  userJob: profileJob
+});
 
 // форма редактирования профиля
 const addPopupEditProfile = new PopupWithForm(popupEditProfile, {

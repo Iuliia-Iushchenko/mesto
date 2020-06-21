@@ -21,7 +21,7 @@ export default class Popup {
 
   _handlerOverlayClose(evt) {
     if (evt.target.classList.contains('popup')) {
-    this.close();
+      this.close();
     }
   }
 
