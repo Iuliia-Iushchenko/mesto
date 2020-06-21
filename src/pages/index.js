@@ -35,6 +35,16 @@ function formValidation() {
   });
 }
 
+function errorClean(form) {
+  form.querySelectorAll('.popup__input-error').forEach((span) => {
+    span.classList.remove('popup__input-error_active');
+    span.textContent = '';
+  });
+  form.querySelectorAll('.popup__input').forEach((input) => {
+    input.classList.remove('popup__input_type_error');
+  })
+}
+
 const popupWithImage = new PopupWhithImage(popupDisplayCard);
 
 function rendererCardList(item) {
@@ -79,11 +89,13 @@ document.querySelector('.button_edit').addEventListener('click', () => {
   inputProfileName.value = profileName.textContent;
   inputProfileJob.value = profileJob.textContent;
   formProfile.querySelector('.button_submit').classList.remove('button_submit_inactive');
+  errorClean(formProfile);
   addPopupEditProfile.open();
 });
 
 document.querySelector('.button_add').addEventListener('click', () => {
   formCreateCard.querySelector('.button_submit').classList.add('button_submit_inactive');
+  errorClean(formCreateCard);
   addPopupCreateCard.open();
 })
 
