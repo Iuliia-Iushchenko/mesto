@@ -57,6 +57,22 @@ export default class FormValidator {
     })
   }
 
+  errorCline() {
+    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    const spanList = Array.from(this._formElement.querySelectorAll('.popup__input-error'));
+    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+
+    spanList.forEach((span) => {
+      span.classList.remove(this._errorClass);
+      span.textContent = '';
+    });
+    inputList.forEach((input) => {
+      input.classList.remove(this._inputErrorClass);
+    })
+
+    this._toggleButtonState(inputList, buttonElement);
+  }
+
   enableValidation() {
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();

@@ -12,6 +12,13 @@ export const popupDisplayCard = document.querySelector('.popup-card');
 
 export const galleryContainer = '.gallery';
 
+export const formSettings = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.button_submit',
+  inactiveButtonClass: 'button_submit_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+}
 
 export const initialCards = [
   {

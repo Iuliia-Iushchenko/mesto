@@ -17,33 +17,13 @@ import {
   formCreateCard,
   popupDisplayCard,
   galleryContainer,
+  formSettings,
   initialCards
 } from "../utils/constants.js"
 
-function formValidation() {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+const formProfileValidator = new FormValidator(formSettings, formProfile);
 
-  formList.forEach((form) => {
-    const formValidator = new FormValidator ({
-      inputSelector: '.popup__input',
-      submitButtonSelector: '.button_submit',
-      inactiveButtonClass: 'button_submit_inactive',
-      inputErrorClass: 'popup__input_type_error',
-      errorClass: 'popup__input-error_active'
-    }, form);
-    formValidator.enableValidation();
-  });
-}
-
-function errorClean(form) {
-  form.querySelectorAll('.popup__input-error').forEach((span) => {
-    span.classList.remove('popup__input-error_active');
-    span.textContent = '';
-  });
-  form.querySelectorAll('.popup__input').forEach((input) => {
-    input.classList.remove('popup__input_type_error');
-  })
-}
+const formCreateCardValidator = new FormValidator(formSettings, formCreateCard);
 
 const popupWithImage = new PopupWhithImage(popupDisplayCard);
 
@@ -58,7 +38,7 @@ function rendererCardList(item) {
 
 // отображение карточек на странице
 const cardList = new Section({
-  data: initialCards,
+  data: initialCards.reverse(),
   renderer: ((item) => {
     rendererCardList(item);
   })
@@ -71,8 +51,8 @@ const userInfo = new UserInfo({
 
 // форма редактирования профиля
 const addPopupEditProfile = new PopupWithForm(popupEditProfile, {
-  handleFormSubmit: () => {
-    userInfo.setUserInfo();
+  handleFormSubmit: (item) => {
+    userInfo.setUserInfo(item);
   }
 });
 
@@ -86,20 +66,18 @@ const addPopupCreateCard = new PopupWithForm(popupCreateCard, {
 
 cardList.renderItems();
 
-userInfo.getUserInfo();
-
-document.querySelector('.button_edit').addEventListener('click', () => {
-  inputProfileName.value = profileName.textContent;
-  inputProfileJob.value = profileJob.textContent;
-  formProfile.querySelector('.button_submit').classList.remove('button_submit_inactive');
-  errorClean(formProfile);
-  addPopupEditProfile.open();
-});
-
 document.querySelector('.button_add').addEventListener('click', () => {
-  formCreateCard.querySelector('.button_submit').classList.add('button_submit_inactive');
-  errorClean(formCreateCard);
+  formCreateCardValidator.errorCline();
   addPopupCreateCard.open();
 })
 
-formValidation();
+document.querySelector('.button_edit').addEventListener('click', () => {
+  const autorInfo = userInfo.getUserInfo();
+  inputProfileName.value = autorInfo.name;
+  inputProfileJob.value = autorInfo.job;
+  formProfileValidator.errorCline();
+  addPopupEditProfile.open();
+});
+
+formProfileValidator.enableValidation();
+formCreateCardValidator.enableValidation();
