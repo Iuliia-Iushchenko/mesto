@@ -14,12 +14,13 @@
     <section class="profile">
       <div class="profile__container">
         <img class="profile__picture" src="./images/profile_image.jpg" alt="Фото профиля">
+        <div class="profile__picture_edit"></div>
         <div class="profile__info">
           <div class="profile__edit">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <h1 class="profile__name"></h1>
             <button class="button button_edit" name="button_edit" type="button"></button>
           </div>
-          <p class="profile__job">Исследователь океана</p>
+          <p class="profile__job"></p>
         </div>
       </div>
         <button class="button button_add" name="button_add" type="button"></button>
@@ -39,6 +40,16 @@
       </div>
     </div>
 
+    <div class="popup popup_opacity-normal popup-delete">
+      <div class="popup__container">
+        <form action="#" class="popup__form popup__form_height-small">
+          <h2 class="popup__title popup__title_padding_small">Вы уверены?</h2>
+          <button class="popup__button button button_submit button_create" type="submit">Да</button>
+        </form>
+          <button class="button button_close popup-delete__close" type="button"></button>
+      </div>
+    </div>
+
     <div class="popup popup_opacity-normal popup-edit">
       <div class="popup__container">
         <form action="#" class="popup__form">
@@ -50,6 +61,18 @@
           <button class="popup__button button button_submit" type="submit">Сохранить</button>
         </form>
           <button class="button button_close popup-edit__close" type="button"></button>
+      </div>
+    </div>
+
+    <div class="popup popup_opacity-normal popup-change">
+      <div class="popup__container">
+        <form action="#" class="popup__form popup__form_height-medium">
+          <h2 class="popup__title popup__title_padding">Обновить аватар</h2>
+          <input class="popup__input popup__input_link" id="url-input" type="url" name="link" placeholder="Ссылка на аватар" value="" required>
+          <span class="popup__input-error" id="url-input-error"></span>
+          <button class="popup__button button button_submit" type="submit">Сохранить</button>
+        </form>
+          <button class="button button_close popup-change__close" type="button"></button>
       </div>
     </div>
 
@@ -75,7 +98,10 @@
       <button class="button button_delete"></button>
       <div class="gallery-card__description">
         <h2 class="gallery-card__title"></h2>
-        <button class="button button_like" type="button"></button>
+        <div class="gallery-card_like">
+          <button class="button button_like" type="button"></button>
+          <span class="button_like-counter">0</span>
+        </div>
       </div>
     </article>
 

@@ -1,18 +1,36 @@
 export default class UserInfo {
-  constructor({userName, userJob}) {
-    this._userName = userName;
-    this._userJob = userJob;
+  constructor({api, elementName, elementAbout, elementAvatar}) {
+    this._api = api;
+    this._elementName = elementName;
+    this._elementAbout = elementAbout;
+    this._elementAvatar = elementAvatar;
+
+    this._data = null;
+    this._handleResponse(this._api.getUserInfo());
+  }
+
+  _handleResponse(promise) {
+    return promise.then((result) => {
+      this._data = result;
+      this._elementName.textContent = this._data.name;
+      this._elementAbout.textContent = this._data.about;
+      this._elementAvatar.src = this._data.avatar;
+    }).catch(console.log);
   }
 
   getUserInfo() {
     return {
-      name: this._userName.textContent,
-      job: this._userJob.textContent
+      id: this._data._id,
+      name: this._data.name,
+      job: this._data.about,
     }
   }
 
   setUserInfo(data) {
-    this._userName.textContent = data.name;
-    this._userJob.textContent = data.job;
+    return this._handleResponse(this._api.setUserInfo(data.name, data.job));
+  }
+
+  changeAvatar(data) {
+    return this._handleResponse(this._api.changeAvatar(data.link));
   }
 }

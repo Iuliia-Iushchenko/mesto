@@ -57,7 +57,7 @@ export default class FormValidator {
     })
   }
 
-  errorCline() {
+  errorClean() {
     const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     const spanList = Array.from(this._formElement.querySelectorAll('.popup__input-error'));
     const buttonElement = this._formElement.querySelector(this._submitButtonSelector);

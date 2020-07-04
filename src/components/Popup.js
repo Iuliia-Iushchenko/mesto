@@ -1,6 +1,7 @@
 export default class Popup {
   constructor(popupSelector) {
     this._popupSelector = popupSelector;
+    this._buttonSubmit = this._popupSelector.querySelector('.button_submit');
     this._handleEscClose =  (evt) => {
       if (evt.key === 'Escape') {
         this.close();
@@ -31,5 +32,15 @@ export default class Popup {
     this._popupSelector.querySelector('.button_close').addEventListener('click', () => {
       this.close();
     });
+  }
+
+  showLoading(text) {
+    this._buttonSubmit.textContent = text;
+    this._buttonSubmit.classList.add('button_submit_inactive');
+  }
+
+  hideLoading(oldText) {
+    this._buttonSubmit.textContent = oldText;
+    this._buttonSubmit.classList.remove('button_submit_inactive');
   }
 }

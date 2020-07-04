@@ -1,0 +1,9 @@
+.popup__form_height-small {
+  height: 181px;
+}
+
+@media screen and (max-width: 582px) {
+  .popup__form_height-small {
+    height: 150px;
+    }
+  }

@@ -4,11 +4,18 @@ export const inputProfileName = formProfile.querySelector('.popup__input_name');
 export const inputProfileJob = formProfile.querySelector('.popup__input_job');
 export const profileName = document.querySelector('.profile__name');
 export const profileJob = document.querySelector('.profile__job');
+export const profileAvatar = document.querySelector('.profile__picture');
+
+export const popupChangeAvatar = document.querySelector('.popup-change');
+export const formChangeAvatar = popupChangeAvatar.querySelector('form');
 
 export const popupCreateCard = document.querySelector('.popup-add');
 export const formCreateCard = popupCreateCard.querySelector('form');
 
 export const popupDisplayCard = document.querySelector('.popup-card');
+
+export const popupDeleteCard = document.querySelector('.popup-delete');
+
 
 export const galleryContainer = '.gallery';
 

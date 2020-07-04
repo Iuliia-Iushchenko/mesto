@@ -1,0 +1,21 @@
+.profile__picture_edit {
+  background-image: url(../../../../images/penсil.svg);
+  background-position: center;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 50%;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  content: "";
+  cursor: pointer;
+  opacity: 0;
+
+  -webkit-transition: opacity .5s linear;
+  -o-transition: opacity .5s linear;
+  transition: opacity .5s linear;
+}
+
+.profile__picture_edit:hover {
+  opacity: 1;
+}

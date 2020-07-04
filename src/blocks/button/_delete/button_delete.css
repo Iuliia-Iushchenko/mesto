@@ -9,4 +9,5 @@
   background-image: url(../../../images/delite.svg);
   background-repeat: no-repeat;
   z-index: 1;
+  display: none;
 }
