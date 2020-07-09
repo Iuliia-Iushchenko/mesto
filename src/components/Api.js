@@ -14,10 +14,8 @@ export default class Api {
       body: JSON.stringify(body)
     }).then(res => {
       if (res.ok) {
-        console.log('api.js ok'); //проверка
         return res.json();
       }
-      console.log('api.js reject'); //проверка
       return Promise.reject(`Ошибка: ${res.status}`);
     });
   }

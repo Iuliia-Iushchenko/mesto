@@ -12,7 +12,8 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   setOnConfirm(callback) {
-    this._popupSelector.querySelector('.button_create').addEventListener('click', () => {
+      this._popupSelector.querySelector('.button_create').addEventListener('click', (evt) => {
+      evt.preventDefault();
       this.showLoading('Удаление...');
       callback(this._data)
       .then(() => {

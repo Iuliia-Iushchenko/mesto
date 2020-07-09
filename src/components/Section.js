@@ -17,7 +17,7 @@ export default class Section {
         });
       })
       .catch(err => console.log(err))
-  }
+   }
 
   createCard(title, path) {
     return this._api.createCard(title, path)
