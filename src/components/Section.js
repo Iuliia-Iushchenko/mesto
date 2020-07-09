@@ -16,7 +16,7 @@ export default class Section {
           this._renderer(item);
         });
       })
-      .catch(console.log);
+      .catch(err => console.log(err))
   }
 
   createCard(title, path) {
@@ -24,15 +24,15 @@ export default class Section {
       .then((result) => {
         this._renderer(result);
       })
-      .catch(console.log);
+      .catch(err => console.log(err))
   }
 
-  deleteCard(id) {
+  deleteCard(id, element) {
     return this._api.deleteCard(id)
       .then(() => {
-        this._fetchCards();
+        element.remove();
       })
-      .catch(console.log);
+      .catch(err => console.log(err));
   }
 
   addItem(element) {

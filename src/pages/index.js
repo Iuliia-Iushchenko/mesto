@@ -45,7 +45,7 @@ const userInfo = new UserInfo({
   api: api,
   elementName: profileName,
   elementAbout: profileJob,
-  elementAvatar: profileAvatar
+  elementAvatar: profileAvatar,
 });
 
 function renderCard(item) {
@@ -53,8 +53,8 @@ function renderCard(item) {
     handleCardClick: () => {
       popupWithImage.open(item.name, item.link);
     },
-    handleTrashCanClick: () => {
-      popupDelete.open(item._id);
+    handleTrashCanClick: (element) => {
+      popupDelete.open({ cardId: item._id, element });
     }
   });
   cardList.addItem(card.generateCard());
@@ -62,8 +62,8 @@ function renderCard(item) {
 
 // отображение карточек на странице
 const cardList = new Section({ api: api, renderer: renderCard }, galleryContainer);
-popupDelete.setOnConfirm((cardId) => {
-  return cardList.deleteCard(cardId);
+popupDelete.setOnConfirm(({ cardId, element }) => {
+  return cardList.deleteCard(cardId, element);
 });
 
 // форма редактирования профиля

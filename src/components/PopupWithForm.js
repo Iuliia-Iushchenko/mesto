@@ -19,17 +19,22 @@ export default class PopupWithForm extends Popup {
   _handleSubmitForm(evt) {
     evt.preventDefault();
     this.showLoading('Сохранение...');
-    const promise = this._handleFormSubmit(this._getInputValues());
-    promise.finally(() => {
+    this._handleFormSubmit(this._getInputValues())
+    .then(() => {
+      console.log('then'); //проверка
+      this.close();
+    }).finally(() => {
+      console.log('finally'); //проверка
       this.hideLoading(this._buttonText);
     })
-    this.close();
   }
 
   _setEventListener() {
     super._setEventListener();
-    this._submitForm = this._handleSubmitForm.bind(this);
-    this._popupSelector.querySelector('.popup__form').addEventListener('submit', this._submitForm);
+    // this._submitForm = this._handleSubmitForm.bind(this);
+    this._popupSelector.querySelector('.popup__form').addEventListener('submit', (evt) => {this._handleSubmitForm(evt)}
+
+    );
   }
 
   close() {

@@ -29,12 +29,12 @@ export default class Card {
       this._data = result;
       this._renderLikes();
     })
-    .catch(console.log)
+    .catch(err => console.log(err))
   }
 
   _setEventListeners() {
     this._element.querySelector('.button_delete').addEventListener('click', () => {
-      this._handleTrashCanClick();
+      this._handleTrashCanClick(this._element);
     });
 
     this._buttonLike.addEventListener('click', () => {

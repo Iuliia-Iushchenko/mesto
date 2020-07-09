@@ -11,11 +11,12 @@ export default class UserInfo {
 
   _handleResponse(promise) {
     return promise.then((result) => {
+      console.log('UserInfo ok'); //проверка
       this._data = result;
       this._elementName.textContent = this._data.name;
       this._elementAbout.textContent = this._data.about;
       this._elementAvatar.src = this._data.avatar;
-    }).catch(console.log);
+    }).catch(err => console.log(err));
   }
 
   getUserInfo() {
