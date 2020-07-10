@@ -20,17 +20,14 @@ export default class PopupWithForm extends Popup {
     evt.preventDefault();
     this.showLoading('Сохранение...');
     this._handleFormSubmit(this._getInputValues())
-    .then(() => {
-      this.close();
-    }).finally(() => {
-      this.hideLoading(this._buttonText);
-    })
+    .then(() => this.close())
+    .catch(err => console.log(err))
+    .finally(() => this.hideLoading(this._buttonText));
   }
 
   _setEventListener() {
     super._setEventListener();
     this._popupSelector.querySelector('.popup__form').addEventListener('submit', (evt) => {this._handleSubmitForm(evt)}
-
     );
   }
 

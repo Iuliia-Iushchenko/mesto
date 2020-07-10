@@ -16,12 +16,9 @@ export default class PopupWithConfirmation extends Popup {
       evt.preventDefault();
       this.showLoading('Удаление...');
       callback(this._data)
-      .then(() => {
-        this.close();
-      })
-      .finally(() => {
-        this.hideLoading(this._buttonText);
-      })
-    })
+      .then(() => this.close())
+      .catch(err => console.log(err))
+      .finally(() => this.hideLoading(this._buttonText));
+    });
   }
 }
